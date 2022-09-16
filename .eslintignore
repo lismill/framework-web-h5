@@ -1,0 +1,8 @@
+/node_modules
+/dist
+/src/assets
+/package-lock.json
+/.vscode
+/commitlint.config.js
+/src/auto-import.d.ts
+/src/components.d.ts
