@@ -1,0 +1,10 @@
+.l-form-dialog-modal {
+    .arco-modal-body {
+        padding: 0 !important;
+        overflow: hidden;
+    }
+    .scrollbar__thumbPlaceholder--vertical {
+        width: 8px;
+        right: 4px !important;
+    }
+}

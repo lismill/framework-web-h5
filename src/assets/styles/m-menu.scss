@@ -1,0 +1,71 @@
+// 圆角
+.arco-menu {
+    border-radius: 0 8px 16px 0;
+}
+
+// 去除滚动条
+.arco-menu-inner {
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+// 上边距
+.arco-menu-vertical .arco-menu-inner {
+    padding: 8px;
+}
+
+// 元素边距
+.arco-menu-vertical .arco-menu-item,
+.arco-menu-vertical .arco-menu-group-title,
+.arco-menu-vertical .arco-menu-pop-header,
+.arco-menu-vertical .arco-menu-inline-header {
+    margin-bottom: 8px;
+}
+
+// 图标和标题距离
+.arco-menu .arco-menu-item .arco-icon,
+.arco-menu .arco-menu-group-title .arco-icon,
+.arco-menu .arco-menu-pop-header .arco-icon,
+.arco-menu .arco-menu-inline-header .arco-icon,
+.arco-menu .arco-menu-item .arco-menu-icon,
+.arco-menu .arco-menu-group-title .arco-menu-icon,
+.arco-menu .arco-menu-pop-header .arco-menu-icon,
+.arco-menu .arco-menu-inline-header .arco-menu-icon {
+    margin-right: 10px;
+}
+
+// 菜单对齐
+.arco-menu-inline-content {
+    // 二级菜单
+    .arco-menu-indent {
+        width: 24px !important;
+    }
+    // 二级菜单可折叠
+    .arco-menu-inline-header {
+        .arco-menu-indent {
+            width: 28px !important;
+        }
+    }
+    // 三级菜单
+    .arco-menu-inline-content {
+        .arco-menu-indent {
+            width: 20px !important;
+        }
+    }
+}
+
+// 折叠菜单图标位置
+.arco-menu-pop {
+    .arco-menu-pop-header,
+    .arco-menu-inline-header {
+        padding-right: 0;
+    }
+    .arco-menu-item,
+    .arco-menu-group-title,
+    .arco-menu-pop-header,
+    .arco-menu-inline-header {
+        padding-left: 7px;
+    }
+}

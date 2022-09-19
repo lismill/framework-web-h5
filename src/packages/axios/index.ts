@@ -6,7 +6,7 @@ import "nprogress/nprogress.css";
 
 // 创建请求
 const service = axios.create({
-  baseURL: import.meta.env.BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL as string,
   headers: {
     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
   },
@@ -33,7 +33,7 @@ const pending = new Map();
  * 添加请求
  * @param {Object} config
  */
-const addPending = (config: AxiosRequestConfig<any>) => {
+const addPending = (config: AxiosRequestConfig) => {
   const url = [config.method, config.url, qs.stringify(config.params), qs.stringify(config.data)].join("&");
   // eslint-disable-next-line no-param-reassign
   config.cancelToken =
@@ -49,7 +49,7 @@ const addPending = (config: AxiosRequestConfig<any>) => {
  * 移除请求
  * @param {Object} config
  */
-const removePending = (config: any) => {
+export const removePending = (config: AxiosRequestConfig) => {
   const url = [config.method, config.url, qs.stringify(config.params), qs.stringify(config.data)].join("&");
   if (pending.has(url)) {
     // 如果在 pending 中存在当前请求标识，需要取消当前请求，并且移除
@@ -63,11 +63,13 @@ const removePending = (config: any) => {
  * 请求拦截器
  */
 service.interceptors.request.use(
-  (config: any) => {
+  (config: AxiosRequestConfig) => {
     // 请求开始对之前的请求做检查取消操作
     removePending(config);
+
     // 将当前请求添加到 pending 中
     addPending(config);
+
     // 开启进度条
     nprogress.start();
 
@@ -75,7 +77,7 @@ service.interceptors.request.use(
     return business.request(config);
   },
   (error) => {
-    console.log("error:::", error);
+    console.log("request error:::", error);
   },
 );
 
@@ -96,11 +98,11 @@ service.interceptors.response.use(
   (error) => {
     // 关闭进度条
     nprogress.done();
-    if (axios.isCancel(error)) {
-      console.log(`repeated request: ${error.message}`);
-    } else {
-      console.log("error:::", error);
-    }
+    if (axios.isCancel(error)) return {};
+
+    // HTTP 异常
+    error.response && business.error(error.response);
+
     return Promise.reject(error);
   },
 );
