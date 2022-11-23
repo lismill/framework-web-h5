@@ -4,6 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 import {setupComponents} from "@/components/index";
 import "virtual:svg-icons-register";
+import "virtual:windi.css";
 import "@/assets/styles/index.scss";
 
 // app

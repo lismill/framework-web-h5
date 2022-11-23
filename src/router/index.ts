@@ -13,6 +13,14 @@ const routes: Array<RouteRecordRaw> = [
    */
   ...ROUTES,
   /**
+   * base
+   */
+  {
+    path: "/",
+    name: "/",
+    redirect: "/dashboard",
+  },
+  /**
    * 404 页面
    */
   {

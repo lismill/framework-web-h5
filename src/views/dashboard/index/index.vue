@@ -1,3 +1,9 @@
 <template>
-  <div class="dashboard">控制台</div>
+  <div class="dashboard">
+    <div class="h-1200px">Dashboard</div>
+  </div>
 </template>
+
+<script lang="ts">
+export default {};
+</script>

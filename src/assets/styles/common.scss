@@ -9,7 +9,6 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 a {
   cursor: pointer;
@@ -30,4 +29,12 @@ input {
 }
 img {
   max-width: 100%;
+}
+
+#frameword-loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

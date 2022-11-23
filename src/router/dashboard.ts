@@ -18,6 +18,27 @@ export default {
       meta: {
         title: "控制台",
         icon: "menu-dashboard",
+        header: {
+          show: true,
+        },
+        navbar: {
+          show: true,
+        },
+      },
+    },
+    {
+      path: "search",
+      name: "/dashboard/search",
+      component: () => import(/* webpackChunkName: "dashboard" */ "@/views/dashboard/index/index.vue"),
+      meta: {
+        title: "控制台asd",
+        icon: "menu-dashboard",
+        header: {
+          show: true,
+        },
+        navbar: {
+          show: true,
+        },
       },
     },
   ],
